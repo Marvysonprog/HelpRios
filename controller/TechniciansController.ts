@@ -26,13 +26,20 @@ export class TechniciansController {
     }
 
     async save(request: Request, response: Response, next: NextFunction) {
-        const { id, firstName, lastName, age } = request.body;
+        const { id, firstName, lastName, age, dateOfBirth, cpf, rg, address, nationality, fone } = request.body;
 
         const technicians = Object.assign(new Technicians(), {
             id,
             firstName,
             lastName,   
-            age
+            age,
+            dateOfBirth,
+            cpf,
+            rg,
+            address,
+            nationality,
+            fone
+
         })
 
         return this.TechniciansRepository.save(technicians)

@@ -26,13 +26,17 @@ export class SystemsController {
     }
 
     async save(request: Request, response: Response, next: NextFunction) {
-        const { id, firstName, lastName, age } = request.body;
+        const { id, typee, description, financial, stock, humanResources, billsToPay, fiscal } = request.body;
 
         const systems = Object.assign(new Systems(), {
             id,
-            firstName,
-            lastName,   
-            age
+            typee,
+            description,   
+            financial,
+            stock, 
+            humanResources,
+            billsToPay, 
+            fiscal
         })
 
         return this.SystemsRepository.save(systems)
